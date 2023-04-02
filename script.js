@@ -32,6 +32,38 @@ document.getElementById('add-btn').addEventListener('click', function(e){
 })
 
 // *********** Edit and Delete Items ***********
+ul.addEventListener('click', function(e){
+    // Edit
+    if(e.target.classList[1] == 'fa-pencil-square-o'){
+        var parentPar = e.target.parentNode;
+        parentPar.style.display = 'none';
+
+        var note = parentPar.previousElementSibling;
+        var input = parentPar.nextElementSibling;
+
+        input.style.display = 'block';
+        input.value = note.textContent;
+
+        input.addEventListener('keypress', function(e){
+            if(e.keyCode === 13){
+                if(input.value !== ''){
+                    note.textContent = input.value;
+                    parentPar.style.display = 'block';
+                    input.style.display = 'none';
+                }
+                else{
+                    var li = input.parentNode;
+                    li.parentNode.removeChild(li);
+                }
+            }
+        });
+    }
+    else if(e.target.classList[1] == 'fa-times'){
+        var listItem = e.target.parentNode.parentNode;
+        listItem.parentNode.removeChild(listItem);
+    }
+})
+
 
 
 
