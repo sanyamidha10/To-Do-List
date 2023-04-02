@@ -64,6 +64,25 @@ ul.addEventListener('click', function(e){
     }
 })
 
+// *********** Hide Notes ***********
+
+var hideItem = document.getElementById('hide');
+
+hideItem.addEventListener('click', function(e){
+    var label = document.querySelector('label');
+
+    if(hideItem.checked){
+        label.textContent = 'Show Notes';
+        ul.style.display = 'none';
+    }
+    else{
+        label.textContent = 'Hide Notes';
+        ul.style.display = 'block';
+    }
+})
+
+
+
 
 
 
